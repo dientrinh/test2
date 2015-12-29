@@ -16,8 +16,17 @@ public class MainActivity extends AppCompatActivity {
     public int ADDNEW(int a){
         return a+5;
     }
-    public void ADNDADodadsadadasdndahADDHAKDdaskdjakdauufafioassbsadconghoaxahoichung(){
+    public void aDNDADodadsadadasdndahADDHAKDdaskdjakdauufafioassbsadconghoaxahoichung(){
         int a;
         int b;
+    }
+    
+    public int check(int i){
+        if(i<=2)
+        return 1;
+        if(i>2&&i<5)
+        return 2;
+        else
+        return 3;
     }
 }
