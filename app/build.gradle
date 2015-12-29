@@ -34,3 +34,62 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.4'
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.2.1'
 }
+
+apply plugin: 'findbugs'
+
+task findbugs(type: FindBugs) {
+
+    ignoreFailures = true
+    excludeFilter = new File("${project.projectDir}/flatform/findbugs/findbugs-filter.xml")
+    effort = "max"
+    reportLevel = "high"
+    classes = files("$project.buildDir/intermediates/classes")
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+        xml {
+            destination "$project.buildDir/reports/findbugs/findbugs.xml"
+            xml.withMessages true
+        }
+        html {
+            destination "$project.buildDir/reports/findbugs/findbugs.html"
+        }
+    }
+    classpath = files()
+}
+
+
+apply plugin: 'pmd'
+
+task pmd(type: Pmd) {
+    ignoreFailures = true
+    ruleSetFiles = files("${project.projectDir}/flatform/pmd/pmd-ruleset.xml")
+    ruleSets = []
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+apply plugin: 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+    ignoreFailures = true
+    configFile file("${project.projectDir}/flatform/checkstyle/checkstyle.xml")
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**', '**/test/**'
+
+    classpath = files()
+}
