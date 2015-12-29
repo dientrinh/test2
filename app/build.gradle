@@ -52,13 +52,13 @@ task findbugs(type: FindBugs) {
     reports {
         xml.enabled = true
         html.enabled = false
-        xml {
-            destination "$project.buildDir/reports/findbugs/findbugs.xml"
-            xml.withMessages true
-        }
-        html {
-            destination "$project.buildDir/reports/findbugs/findbugs.html"
-        }
+      //  xml {
+       //     destination "$project.buildDir/reports/findbugs/findbugs.xml"
+       //     xml.withMessages true
+      //  }
+     //   html {
+      //      destination "$project.buildDir/reports/findbugs/findbugs.html"
+       // }
     }
     classpath = files()
 }
