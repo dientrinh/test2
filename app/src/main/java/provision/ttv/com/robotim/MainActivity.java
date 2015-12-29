@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     public int sum(int a, int b){
         return a+b;
     }
-    public void ADDNEW(int a){
+    public int ADDNEW(int a){
         return a+5;
     }
     public void ADNDADodadsadadasdndahADDHAKDdaskdjakdauufafioassbsadconghoaxahoichung(){
